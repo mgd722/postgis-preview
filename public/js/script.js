@@ -100,6 +100,12 @@ attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreet
     historyIndex += increment;
     updateSQL(queryHistory[historyIndex]);
     updateHistoryButtons();
+    // keep index in range of 0-24
+    if (historyIndex<0) {
+      historyIndex = 0;
+    } else if (historyIndex<24){
+      historyIndex = 24;
+    }
   }
 
   function propertiesTable( properties ) {
